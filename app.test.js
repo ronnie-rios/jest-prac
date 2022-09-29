@@ -7,3 +7,11 @@ test('adds 2 +2 = 4', () => {
     //matcher function
     .toBe(4)
 });
+
+test('should be null', () => {
+    expect(functions.isNull()).toBeNull();
+});
+
+test('should be falsy value', () => {
+    expect(functions.checkValue(undefined)).toBeFalsy();
+});
