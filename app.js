@@ -6,7 +6,11 @@ const functions = {
         const user = { firstname: 'momo' }
         user['lastname'] = 'zingo'
         return user;
-    }
+    },
+    fethchData: () =>
+    fetch('//jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => console.log(json))
 };
 
 module.exports = functions;
