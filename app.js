@@ -12,7 +12,13 @@ const functions = {
     fetchData: () =>
         axios.get('https://jsonplaceholder.typicode.com/users/1')
         .then(response => response.data)
-        .catch(err => console.log(err))
+        .catch(err => console.log(err)),
+    reverseStr: (str) => {
+        return  str
+        .split('')
+        .reverse()
+        .join('')
+    }
 };
 
 module.exports = functions;

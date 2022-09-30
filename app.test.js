@@ -1,5 +1,4 @@
 const functions = require('./app');
-
 //takes in a description
 //adding toBe
 test('adds 2 +2 = 4', () => {
@@ -36,4 +35,14 @@ test('expect user to be - Leanne Graham', () => {
         .then(data => {
             expect(data.name).toEqual('Leanne Graham')
         });
+});
+
+//does it exist
+test('reverseStr func exists', () => {
+    expect(functions.reverseStr).toBeDefined();
+});
+
+//test functionality
+test('reverseStr reverese', () => {
+    expect(functions.reverseStr('momo')).toEqual('omom');
 });
