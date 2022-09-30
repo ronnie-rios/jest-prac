@@ -31,9 +31,9 @@ test('user should be a momo zingo obj', () => {
 //working with async data
 test('expect user to be - Leanne Graham', () => {
     //assertions
-   // expect.assertions(1)
-    return functions.fethchData()
+    expect.assertions(1)
+    return functions.fetchData()
         .then(data => {
             expect(data.name).toEqual('Leanne Graham')
-        })
+        });
 });
