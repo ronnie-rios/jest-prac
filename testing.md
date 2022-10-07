@@ -13,3 +13,19 @@ if you don't test everything, you will miss something
 - high / complete code & scenario coverage can be achieved
 
 ## unit testing v integration and end-to-end testing
+
+### unit testing
+- test the individual blocks of an app
+- every test is standalon
+
+### integration testing
+- test the combo of building blocks
+- verifiy if blocks work together
+- if unit works standalone, can fail when combine
+
+### E2E
+- test entire flows and application features
+- test the actual **things** thins real users would do
+
+### summary
+- do a combo of the above ^
