@@ -35,3 +35,21 @@ if you don't test everything, you will miss something
 
 ### summary
 - do a combo of the above ^
+
+## arrange act assert
+- arrange: definte the test env & values
+- act: run the actual code / function that should be test
+- assert: evaluate the produced value / result and compare it to the expected value / result
+
+```js
+it('should add all nums in an arr', () => {
+    //arrange
+    const numbers = [1,2,3]
+    //act
+    const result = add(numbers);
+    //assert
+    const expectedResult = numbers.reduce(
+        (prevValue, curValue) =>  prevValue + curValue, 0)
+    expect(result).toBe(expectedResult)
+});
+```
