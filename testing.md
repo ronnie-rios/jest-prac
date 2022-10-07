@@ -16,12 +16,18 @@ if you don't test everything, you will miss something
 
 ### unit testing
 - test the individual blocks of an app
-- every test is standalon
+- every test is standalone
+- quickly spot and pinpoint breaking changes and errors
+- ignore actual user flows
 
 ### integration testing
 - test the combo of building blocks
 - verifiy if blocks work together
 - if unit works standalone, can fail when combine
+- test parts of processes
+- hard to spot root of an error
+- test realistic user flows and behaviors
+- hard to cover everything
 
 ### E2E
 - test entire flows and application features
