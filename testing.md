@@ -11,3 +11,5 @@ if you don't test everything, you will miss something
 - initial setup, but less work than manual
 - predictable & consistent
 - high / complete code & scenario coverage can be achieved
+
+## unit testing v integration and end-to-end testing
