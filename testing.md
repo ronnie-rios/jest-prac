@@ -66,3 +66,15 @@ it('should add all nums in an arr', () => {
 - write separate tests for your backend and your frontend, each would be independent
 
 - do test your client-side reaction to different responses & errors
+
+### a good test
+- arrange - act - assert
+- only test **one** thing
+- focus on the essecnce of a test when arranging
+- keep your number of assertions `expect()` **low**, too many assertions leads to not testing one thing, should generally only test one thing
+
+### what is one thing?
+- one thing means one feature, like a validate input, or transforming data
+- even for validation, like checking if the input field is empty should be different from a test that would test to make sure the input has certain length
+- as long as it relates to what is described in the `it()` block
+
