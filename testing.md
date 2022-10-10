@@ -50,6 +50,19 @@ it('should add all nums in an arr', () => {
     //assert
     const expectedResult = numbers.reduce(
         (prevValue, curValue) =>  prevValue + curValue, 0)
-    expect(result).toBe(expectedResult)
+        expect(result).toBe(expectedResult)
 });
 ```
+### what should and should not be tested?
+- only test your code! 
+- **don't** test native node packages nor APIS
+- why? cause you wanna test the code you can change
+
+#### Examples
+- form data, can test if youre getting form data, and other such. however you should not test `.queryselector()` since it a native browser method
+
+- don't test `fetch()` if it works as intended, like fetching from a random API
+
+- write separate tests for your backend and your frontend, each would be independent
+
+- do test your client-side reaction to different responses & errors
