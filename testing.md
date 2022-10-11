@@ -78,3 +78,7 @@ it('should add all nums in an arr', () => {
 - even for validation, like checking if the input field is empty should be different from a test that would test to make sure the input has certain length
 - as long as it relates to what is described in the `it()` block
 
+### toBe vs toEqual
+- {} != {}, objects are reference values, and are treated as totally different values. even if they have the same properties and values.
+- `toBe()` compares it to be exactly, and [] != [] and {} != {}
+- `toEqual()` compares it as a deep comparison; checks for the values but not their existence in memory
