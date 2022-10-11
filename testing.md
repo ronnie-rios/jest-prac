@@ -151,3 +151,50 @@ describe.concurrent(() => {
 
 ## mocking and spying
 - dealing with side effects
+    - side effects can be like creating a file
+    - updating another file in your code etc.
+
+### Spies
+- wrappers around functions or empty replacements for functions that allow you to track if and how a function is called, replace the function with the `spy` method to get rid of side effects
+
+### working with spies
+- spies help us to see if a function was called
+- ***in jest*** instead of the `vi` object, use `jest` global object from jest
+```js
+describe('generate report data', () => {
+    it('shou;d execute logFn if provided', () => {
+        //keeps tracks of the calles, arguments for function
+        //our spy, allows us to find out if it executes
+        const logger = vi.fn();
+        generateReportData(logger);
+
+        expect(logger).toBeCalled();
+    });
+});
+```
+
+### mocks
+- a replacement for an AP that may provide some test-specific behavior instead
+- can test different scenarios
+- can easily replace functionality from different things
+- ***in jest it's `jest` instead of `vi`***
+```js
+//call the vi and its mock method
+vi.mock('fs');
+//starts vitest or jest will use its mocking algo and mock
+//the argument passed in , in this case this node module
+//and spy on all of those functions
+it('should execute the writeFile method', () => {
+    const testData = 'test';
+    const testFileName = 'test.txt'
+    //call the function and it will be mocked
+    writeData(testData, testFileName);
+    //check to see if its called, not that node will write a new file
+    expect(fs.writeFile).toBeCalled();
+});
+```
+
+#### important things about mocks
+- it will only impact your tests, it will only mock during the test and not affect the code
+- Note: vitest `vi.mock()` method is hoisted to top, `jest.mock()` is not, should be declared before the global variables 
+- the mock is only mocked during the test fuke
