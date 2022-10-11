@@ -84,3 +84,70 @@ it('should add all nums in an arr', () => {
 - `toEqual()` compares it as a deep comparison; checks for the values but not their existence in memory
 
 ## Asynch Testing
+
+#### callback + try / catch block
+```js
+it('should generate a token value', (done) => {
+  const testUserEmail = 'test@test.com';
+
+  generateToken(testUserEmail, (err, token) => {
+    // expect(token).toBeDefined();
+
+    try {
+      expect(token).toBeDefined();
+      // expect(token).toBe(2);
+      done();
+    } catch (err) {
+      done(err);
+    }
+  });
+});
+```
+
+#### async / await
+```js
+it('should generate a token value', async () => {
+  const testUserEmail = 'test@test.com';
+
+  const token = await generateTokenPromise(testUserEmail);
+
+  expect(token).toBeDefined();
+});
+```
+
+## Hooks in Testing
+
+- `beforeAll()`
+- `beforeEach()`
+- `afterAll()`
+- `afterEach()`
+
+- if used in a suite, applies to all tests within that it block
+- if data updates, and you want to reset your tests, run `beforeEach()` or `afterEach()`
+
+### concurrent tests
+- `concurrent` can reudce the amount of time your tests need to execute. 
+- downside: can perform clashing (global) state manipulations that intefere with each other
+- `it`can take a method called `concurrent`, which is like an annotation, and will run in parallel with other tests that have the concurrent keyword.
+```js
+it.concurrent('example case', () => {
+    //arrange
+    //act
+    //assert
+});
+```
+- can attach to a suite, so all tests in the `describe` block will run at the same time
+```js
+describe.concurrent(() => {
+    it('test1', () => {
+        //test
+    });
+
+    it('test2', () => {
+        //test2
+    })
+});
+```
+
+## mocking and spying
+- dealing with side effects
