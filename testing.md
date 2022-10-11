@@ -82,3 +82,5 @@ it('should add all nums in an arr', () => {
 - {} != {}, objects are reference values, and are treated as totally different values. even if they have the same properties and values.
 - `toBe()` compares it to be exactly, and [] != [] and {} != {}
 - `toEqual()` compares it as a deep comparison; checks for the values but not their existence in memory
+
+## Asynch Testing
