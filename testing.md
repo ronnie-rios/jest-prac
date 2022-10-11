@@ -173,6 +173,10 @@ describe('generate report data', () => {
 });
 ```
 
+### spies
+- can formulate different assertions and expectations
+- `toBeCalledWith()` to check what argmuents
+
 ### mocks
 - a replacement for an AP that may provide some test-specific behavior instead
 - can test different scenarios
@@ -197,4 +201,9 @@ it('should execute the writeFile method', () => {
 #### important things about mocks
 - it will only impact your tests, it will only mock during the test and not affect the code
 - Note: vitest `vi.mock()` method is hoisted to top, `jest.mock()` is not, should be declared before the global variables 
-- the mock is only mocked during the test fuke
+- the mock is only mocked during the test file
+
+#### mocking
+- can pass an empty function into the mocked function, by default it's empty, and you can pass it to keep track of it
+
+#### managing mocking globals

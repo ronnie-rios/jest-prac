@@ -12,6 +12,19 @@ import writeData from './io';
 
 //call the vi and it has mock method
 vi.mock('fs');
+//sets our own implementation
+//mocking the return from the path
+
+vi.mock('path', () => {
+    return {
+        default: {
+            join: (...args) => {
+                //returns the filename
+                return args[args.length - 1]
+            }
+        }
+    }
+});
 //starts vitest or jest will use its mocking algo and find the argument passedin
 //and spy on all of those functions
 it('should execute the writeFile method', () => {
@@ -20,5 +33,6 @@ it('should execute the writeFile method', () => {
 
     writeData(testData, testFileName);
     //check to see if its called, not that node will write a new file
-    expect(fs.writeFile).toBeCalled();
+    //expect(fs.writeFile).toBeCalled();
+    expect(fs.writeFile).toBeCalledWith(testFileName, testData)
 });
