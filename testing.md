@@ -207,3 +207,5 @@ it('should execute the writeFile method', () => {
 - can pass an empty function into the mocked function, by default it's empty, and you can pass it to keep track of it
 
 #### managing mocking globals
+- create a `__mocks__` file and can hanlde the mockd data from there
+- `mockImplementationOnce()` creates the mock once and only once
