@@ -209,3 +209,38 @@ it('should execute the writeFile method', () => {
 #### managing mocking globals
 - create a `__mocks__` file and can hanlde the mockd data from there
 - `mockImplementationOnce()` creates the mock once and only once
+
+#### mocking fetch
+- `fetch()` is a global function or object
+
+```js
+const testResponseData = { testKey: 'testData' }
+//the callback in vn will be used as the dummy function for test
+const testFetch = vi.fn((url, options) => {
+    //fetch returns a promise so we create a mock one here
+    return new Promise((resolve, reject) => {
+        //creating the response and turning it to json
+        const testResponse = {
+            ok: true,
+            json() {
+                //resolve an object 
+                return new Promise((resolve, reject) => {
+                    resolve(testResponseData);
+                })
+            }
+        };
+        resolve(testResponse);
+    })
+})
+
+//first param mocking fetch
+//second param mocks, testFetch is created above
+vi.stubGlobal('fetch', testFetch);
+
+it('should return any available response data', () => {
+    const testData = { key: 'test' };
+    
+    return expect(sendDataRequest(testData)).resolves.toEqual(testResponseData);
+})
+```
+
